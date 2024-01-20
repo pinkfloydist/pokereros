@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(5, 1fr);
+    height: 90vh;
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.poker-table {
+    grid-area: 1 / 1 / 5 / 4;
+    background-color: #4A0404;
+    /* background-color: #4CAF50; */
+    padding: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.poker-table-center {
+    background-color: #0b6b36;
+    /* background-color: #409440; */
+    border-radius: 50%;
+    width: 60%;
+    height: 60%;
+    z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+.seat {
+    width: 200px;
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 10%;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent text from overflowing */
+    padding: 5px; /* Add some padding */
+    box-sizing: border-box; /* Include padding in width/height */
+}
+
+.seat p {
+    margin: 0;
+    font-size: 0.9em; /* Adjust font size */
+    text-align: center;
+    word-wrap: break-word; /* Break long words */
+}
+.seat#seat1 { top: 35%;  left: 5%;}
+.seat#seat2 { top: 53%;  left: 12%;}
+.seat#seat3 { top: 60%;  left: 25%;}
+.seat#seat4 { top: 60%;  left: 40%;}
+.seat#seat5 { top: 53%;  left: 53%;}
+.seat#seat6 { top: 35%;  left: 60%;}
+.seat#seat7 { top: 15%;  left: 53%;}
+.seat#seat8 { top: 8%;  left: 40%;}
+.seat#seat9 { top: 8%;  left: 25%;}
+.seat#seat10 { top: 15%;  left: 12%;}
+
+
+.seat .take-seat-btn {
+    /* Style the button */
+    padding: 5px 10px;
+    /* background-color: #4CAF50; */
+    background-color: #4A0404;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.seat .take-seat-btn:hover {
+    background-color: #8A2424;
+}
+
+.seat.taken {
+    background-color: #f0ad4e; /* Color for taken seats */
+}
+
+.players, .log, .commands-panel {
+    background-color: #f2f2f2;
+    padding: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+}
+
+.players {
+	grid-area: 1 / 4 / 3 / 5;
+    overflow-y: auto;
+}
+
+#playersList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#playersList li {
+    margin-bottom: 5px;
+}
+
+
+.log {
+	grid-area: 3 / 4 / 5 / 5;
+    overflow-y: auto;
+    white-space: pre-line; /* Ensure log entries appear on separate lines */
+}
+
+.commands-panel {
+	grid-area: 5 / 1 / 6 / 4;
+}
