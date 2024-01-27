@@ -15,10 +15,11 @@ function updatePlayersList() {
     for (let name in players) {
         const player = players[name];
         const listItem = document.createElement('li');
-        listItem.textContent = `${name}: \$${player.chips}`;
+        listItem.textContent = `${player.name}: \$${player.chips}`;
         playersList.appendChild(listItem);
     }
 }
+
 
 function updateLog(message) {
     const log = document.querySelector('.log');

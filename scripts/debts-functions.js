@@ -8,10 +8,11 @@ function simplifyDebts() {
 
     // Separate players into creditors and debtors
     for (let playerName in players) {
-        if (players[playerName].chips < 0) {
-            creditors.push({ name: playerName, amount: Math.abs(players[playerName].chips) });
-        } else if (players[playerName].chips > 0) {
-            debtors.push({ name: playerName, amount: players[playerName].chips });
+        const player = players[playerName];
+        if (player.chips < 0) {
+            creditors.push({ player: player, amount: Math.abs(player.chips) });
+        } else if (player.chips > 0) {
+            debtors.push({ player: player, amount: player.chips });
         }
     }
 
@@ -28,7 +29,7 @@ function simplifyDebts() {
         creditor.amount -= settledAmount;
         debtor.amount -= settledAmount;
 
-        updateLog(`${debtor.name} le debe ${settledAmount} a ${creditor.name}`);
+        updateLog(`${debtor.player.name} le debe ${settledAmount} a ${creditor.player.name}`);
 
         if (creditor.amount === 0) {
             creditors.shift(); // Remove the creditor who has settled their debt
@@ -37,4 +38,7 @@ function simplifyDebts() {
             debtors.shift(); // Remove the debtor who has been fully paid
         }
     }
+
+    // Update the players list and UI elements as needed
+    updatePlayersList();
 }
