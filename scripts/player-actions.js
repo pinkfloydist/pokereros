@@ -42,20 +42,16 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function takeSeat(seatElement) {
-    if (seatElement.classList.contains('taken')) {
-        manageTakenSeat(seatElement);
-    } else {
-		const playerName = prompt("Nombre del jugador:");
-		const buyInAmount = parseInt(prompt("Buy-in ($):"), 10);
+	const playerName = prompt("Nombre del jugador:");
+	const buyInAmount = parseInt(prompt("Buy-in ($):"), 10);
 
-        if (playerName && !isNaN(buyInAmount)) {
-            seatElement.innerHTML = `<p>${playerName}<br>$${buyInAmount}</p>`;
-            seatElement.classList.add('taken');
-            seatElement.dataset.playerName = playerName;
+	if (playerName && !isNaN(buyInAmount)) {
+		seatElement.innerHTML = `<p>${playerName}<br>$${buyInAmount}</p>`;
+		seatElement.classList.add('taken');
+		seatElement.dataset.playerName = playerName;
 
-            addPlayer(playerName, buyInAmount);
-            updateLog(`${playerName} entró a la mesa con $${buyInAmount}`);
-        }
+		addPlayer(playerName, buyInAmount);
+		updateLog(`${playerName} entró a la mesa con $${buyInAmount}`);
     }
 }
 
