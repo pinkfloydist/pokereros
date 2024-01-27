@@ -82,7 +82,7 @@ function manageTakenSeat(seatElement) {
         rebuyAddOn(playerName);
     } else if (action === "2") {
         leaveTable(playerName);
-        seatElement.innerHTML = ''; // Clear the seat
+        seatElement.innerHTML = '<button class="take-seat-btn">Agregar jugador</button>'; // Clear the seat
         seatElement.classList.remove('taken');
     }
 }
