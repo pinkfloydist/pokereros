@@ -1,5 +1,30 @@
 let players = {}; // Object to store player info
 
+class Player {
+	constructor(name, chips) {
+		this.name = name;
+		this.chips = chips;
+	}
+
+	addChips(amount) {
+		if (amount > 0) {
+			this.chips += ammount;
+		} else {
+			alert("La cantidad de fichas debe ser positiva");
+			console.error("La cantidad de fichas debe ser positiva");
+		}
+	}
+
+	withdrawChips(amount) {
+		if (amount >= 0) {
+			this.chips -= ammount;
+		} else {
+			alert("No se puede retirar con menos de cero fichas");
+			console.error("No se puede retirar con menos de cero fichas");
+		}
+	}
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     const seats = document.querySelectorAll('.seat');
 
